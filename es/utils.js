@@ -1,42 +1,31 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.extend = exports.merge = exports.forEach = exports.hasOwn = exports.isFormData = exports.isURLSearchParams = exports.isDate = exports.isArray = exports.isString = exports.isPlainObject = exports.isObject = void 0;
 var _toString = Object.prototype.toString;
-function isObject(obj) {
+export function isObject(obj) {
     return obj !== null && typeof obj === 'object';
 }
-exports.isObject = isObject;
-function isPlainObject(obj) {
+export function isPlainObject(obj) {
     return _toString.call(obj) === '[object Object]';
 }
-exports.isPlainObject = isPlainObject;
-function isString(str) {
+export function isString(str) {
     return _toString.call(str) === '[Object String]';
 }
-exports.isString = isString;
-function isArray(arr) {
+export function isArray(arr) {
     return Array.isArray(arr);
 }
-exports.isArray = isArray;
-function isDate(val) {
+export function isDate(val) {
     return _toString.call(val) === '[object Date]';
 }
-exports.isDate = isDate;
-function isURLSearchParams(val) {
+export function isURLSearchParams(val) {
     return typeof URLSearchParams !== 'undefined' && val instanceof URLSearchParams;
 }
-exports.isURLSearchParams = isURLSearchParams;
-function isFormData(val) {
+export function isFormData(val) {
     return typeof FormData !== 'undefined' && val instanceof FormData;
 }
-exports.isFormData = isFormData;
-function hasOwn(obj, key) {
+export function hasOwn(obj, key) {
     if (!isObject(obj))
         return false;
     return Object.prototype.hasOwnProperty.call(obj, key);
 }
-exports.hasOwn = hasOwn;
-function forEach(obj, fn) {
+export function forEach(obj, fn) {
     if (obj === null || typeof obj === 'undefined') {
         return;
     }
@@ -56,8 +45,7 @@ function forEach(obj, fn) {
         }
     }
 }
-exports.forEach = forEach;
-function merge() {
+export function merge() {
     var params = []; /* obj1, obj2, obj3, ... */
     for (var _i = 0 /* obj1, obj2, obj3, ... */; _i < arguments.length /* obj1, obj2, obj3, ... */; _i++ /* obj1, obj2, obj3, ... */) {
         params[_i] = arguments[_i]; /* obj1, obj2, obj3, ... */
@@ -82,12 +70,10 @@ function merge() {
     }
     return result;
 }
-exports.merge = merge;
-function extend(target, from) {
+export function extend(target, from) {
     for (var key in from) {
         ;
         target[key] = from[key];
     }
     return target;
 }
-exports.extend = extend;

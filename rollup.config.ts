@@ -10,7 +10,7 @@ const pkg = require('./package.json')
 const libraryName = 'axios'
 
 export default {
-  input: `lib/index.ts`,
+  input: `src/index.ts`,
   output: [
     // { file: pkg.main, name: camelCase(libraryName), format: 'umd', sourcemap: true },
     { file: 'dist/axios.min.js',format: 'es'},
@@ -18,7 +18,7 @@ export default {
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
   external: ['@tarojs/taro'],
   watch: {
-    include: 'lib/**',
+    include: 'src/**',
   },
   plugins: [
     json(),

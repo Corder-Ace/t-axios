@@ -10,21 +10,14 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "declarationDir": "es/types",
+    "declarationDir": "typings",
     "outDir": "es",
     "skipLibCheck": true,
     "typeRoots": [
-      "node_modules/@types"
+      "node_modules/@types",
     ],
-    "types":[]
   },
   "include": [
-    "lib/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "./node_modules",
-    "./node_modules/*",
-    "./node_modules/@types/node/index.d.ts",
+    "src",
   ],
 }

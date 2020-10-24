@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var InterceptorsManger = /** @class */ (function () {
     function InterceptorsManger() {
         this.handlers = [];
@@ -23,4 +21,4 @@ var InterceptorsManger = /** @class */ (function () {
     };
     return InterceptorsManger;
 }());
-exports.default = InterceptorsManger;
+export default InterceptorsManger;

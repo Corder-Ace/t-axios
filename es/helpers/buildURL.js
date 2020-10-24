@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = require("../utils");
+import { isArray, isDate, isPlainObject, isURLSearchParams } from '../utils';
 function encode(val) {
     return encodeURIComponent(val)
         .replace(/%40/gi, '@')
@@ -11,14 +9,14 @@ function encode(val) {
         .replace(/%5B/gi, '[')
         .replace(/%5D/gi, ']');
 }
-function buildURL(url, params, paramsSerializer) {
+export default function buildURL(url, params, paramsSerializer) {
     if (!params)
         return url;
     var serializedParams;
     if (paramsSerializer) {
         serializedParams = paramsSerializer(params);
     }
-    else if (utils_1.isURLSearchParams(params)) {
+    else if (isURLSearchParams(params)) {
         serializedParams = params.toString();
     }
     else {
@@ -27,17 +25,17 @@ function buildURL(url, params, paramsSerializer) {
             var val = params[key];
             if (val === null || typeof val === 'undefined')
                 return "continue";
-            if (utils_1.isArray(val)) {
+            if (isArray(val)) {
                 key += '[]';
             }
             else {
                 val = [val];
             }
             val.forEach(function (v) {
-                if (utils_1.isPlainObject(v)) {
+                if (isPlainObject(v)) {
                     v = JSON.stringify(v);
                 }
-                else if (utils_1.isDate(v)) {
+                else if (isDate(v)) {
                     v = v.toISOString();
                 }
                 parts_1.push(encode(key) + "=" + encode(v));
@@ -53,4 +51,3 @@ function buildURL(url, params, paramsSerializer) {
     }
     return url;
 }
-exports.default = buildURL;

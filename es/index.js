@@ -1,17 +1,15 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var Axios_1 = require("./core/Axios");
-var defaults_1 = require("./defaults");
-var mergeConfig_1 = require("./core/mergeConfig");
-var utils_1 = require("./utils");
+import Axios from './core/Axios';
+import defaults from './defaults';
+import mergeConfig from './core/mergeConfig';
+import { extend } from './utils';
 function createInstance(defaultConfig) {
-    var context = new Axios_1.default(defaultConfig);
-    var instance = Axios_1.default.prototype.request.bind(context);
-    utils_1.extend(instance, context);
+    var context = new Axios(defaultConfig);
+    var instance = Axios.prototype.request.bind(context);
+    extend(instance, context);
     return instance;
 }
-var axios = createInstance(defaults_1.default);
+var axios = createInstance(defaults);
 axios.create = function create(instanceConfig) {
-    return createInstance(mergeConfig_1.default(axios.defaults, instanceConfig));
+    return createInstance(mergeConfig(axios.defaults, instanceConfig));
 };
-exports.default = axios;
+export default axios;

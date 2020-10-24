@@ -1,11 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var isAbslouteUrl_1 = require("../helpers/isAbslouteUrl");
-var combineURLs_1 = require("../helpers/combineURLs");
-function buildFullPath(baseURL, requestedURL) {
-    if (baseURL && !isAbslouteUrl_1.default(requestedURL)) {
-        return combineURLs_1.default(baseURL, requestedURL);
+import isAbsoluteURL from '../helpers/isAbslouteUrl';
+import combineURLs from '../helpers/combineURLs';
+export default function buildFullPath(baseURL, requestedURL) {
+    if (baseURL && !isAbsoluteURL(requestedURL)) {
+        return combineURLs(baseURL, requestedURL);
     }
     return requestedURL;
 }
-exports.default = buildFullPath;

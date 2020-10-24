@@ -1,8 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = require("../utils");
-function transformData(data, headers, fns) {
-    fns = utils_1.isArray(fns) ? fns : [fns];
+import { isArray } from "../utils";
+export default function transformData(data, headers, fns) {
+    fns = isArray(fns) ? fns : [fns];
     fns.forEach(function (fn) {
         if (!fn)
             return;
@@ -10,4 +8,3 @@ function transformData(data, headers, fns) {
     });
     return data;
 }
-exports.default = transformData;
